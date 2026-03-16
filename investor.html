@@ -60,7 +60,7 @@
   <main>
     <section class="grid kpis" id="market">
       <article class="card">
-        <h3>US Active Players</h3>
+        <h3>US Active Players <span class="confidence medium">Medium Confidence</span></h3>
         <p class="big" id="playersKpi">13.6M</p>
         <small>Estimated 2023 US participants</small>
       </article>
@@ -115,9 +115,58 @@
     </section>
 
     <section class="card">
-      <h2>Competitive Pricing Bands</h2>
+      <h2>Competitive Pricing Bands <span class="confidence high">High Confidence</span></h2>
       <canvas id="pricingBandsChart" height="110"></canvas>
       <small>Category benchmark ranges from compiled market research (Mar 2026).</small>
+    </section>
+
+    <section class="card">
+      <h2>Competitor Comparison Matrix</h2>
+      <div class="table-wrap">
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th>Platform</th>
+              <th>Primary Focus</th>
+              <th>Typical Pricing Position</th>
+              <th>Notable Gap / Opportunity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CourtReserve</td>
+              <td>Facility/club operations suite</td>
+              <td>Higher-cost facility SaaS tier</td>
+              <td>Complexity and heavier setup for smaller organizers</td>
+            </tr>
+            <tr>
+              <td>TeamReach</td>
+              <td>Group communication</td>
+              <td>Low-cost / community utility</td>
+              <td>Not an end-to-end league ops workflow</td>
+            </tr>
+            <tr>
+              <td>PlayTime Scheduler</td>
+              <td>Session scheduling</td>
+              <td>Low-cost / scheduler-first</td>
+              <td>Limited integrated operations + standings control</td>
+            </tr>
+            <tr>
+              <td>DUPR ecosystem</td>
+              <td>Ratings & match results</td>
+              <td>Varies by integration context</td>
+              <td>Rating utility vs full club operating layer</td>
+            </tr>
+            <tr>
+              <td><strong>PickleOps</strong></td>
+              <td><strong>Organizer-first ops copilot</strong></td>
+              <td><strong>Mid-market ($49-$299+)</strong></td>
+              <td><strong>Bridges community simplicity + operational control</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <small>Matrix based on public positioning and pricing-band synthesis.</small>
     </section>
 
     <section class="card">
@@ -203,7 +252,7 @@
     </section>
 
     <section class="card" id="financial">
-      <h2>12-Month Revenue Scenarios</h2>
+      <h2>12-Month Revenue Scenarios <span class="confidence medium">Medium Confidence</span></h2>
       <canvas id="mrrChart" height="120"></canvas>
       <div class="three-col" id="scenarioCards"></div>
     </section>

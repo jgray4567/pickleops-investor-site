@@ -82,6 +82,16 @@ ul,ol{line-height:1.65}
 a{color:var(--purple)}
 canvas{display:block;width:100% !important;max-width:100%}
 
+.confidence{display:inline-block;font:600 11px/1.2 Inter,system-ui,sans-serif;padding:4px 8px;border-radius:999px;vertical-align:middle;margin-left:6px}
+.confidence.high{background:#dcfce7;color:#166534;border:1px solid #86efac}
+.confidence.medium{background:#fef3c7;color:#92400e;border:1px solid #fcd34d}
+.confidence.low{background:#fee2e2;color:#991b1b;border:1px solid #fca5a5}
+
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:8px}
+.matrix{width:100%;border-collapse:collapse;min-width:720px;background:#fff}
+.matrix th,.matrix td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;font-size:14px;color:#243040}
+.matrix thead th{background:#f3f6f2;font-weight:700;color:#0f2f1d}
+
 .social-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:12px}
 .social-chip{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
 .social-chip img{width:20px;height:20px;object-fit:contain}
