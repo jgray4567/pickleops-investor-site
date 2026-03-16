@@ -40,6 +40,10 @@
       <button class="slide-nav next" id="slideNext" aria-label="Next slide">❯</button>
       <div class="slide-dots" id="slideDots" aria-label="Slide selectors"></div>
     </section>
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+      <img id="lightboxImg" src="" alt="Expanded slide" />
+    </div>
     <div class="cta-row">
       <a class="btn" href="#market">Market</a>
       <a class="btn ghost" href="#financial">Financial Scenarios</a>
@@ -248,6 +252,10 @@
     const dotsWrap=document.getElementById('slideDots');
     const prev=document.getElementById('slidePrev');
     const next=document.getElementById('slideNext');
+    const slidesWrap=document.getElementById('slidesWrap');
+    const lightbox=document.getElementById('lightbox');
+    const lightboxImg=document.getElementById('lightboxImg');
+    const lightboxClose=document.getElementById('lightboxClose');
     if(!slides.length||!dotsWrap||!prev||!next) return;
     let i=0;
     const dots=slides.map((_,idx)=>{
@@ -266,6 +274,23 @@
     }
     prev.addEventListener('click',()=>show(i-1,true));
     next.addEventListener('click',()=>show(i+1,true));
+
+    function openLightbox(){
+      if(!lightbox||!lightboxImg) return;
+      lightboxImg.src = slides[i].src;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden','false');
+    }
+    function closeLightbox(){
+      if(!lightbox) return;
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+    }
+    if(slidesWrap) slidesWrap.addEventListener('click', openLightbox);
+    if(lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if(lightbox) lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLightbox(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLightbox(); });
+
     let t=setInterval(()=>show(i+1),4500);
     function resetAuto(){clearInterval(t);t=setInterval(()=>show(i+1),4500)}
   })();
