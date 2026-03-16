@@ -304,6 +304,18 @@
     if(lightboxNext) lightboxNext.addEventListener('click', (e)=>{ e.stopPropagation(); nextSlide(false); });
     if(lightbox) lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLightbox(); });
 
+    // Click-to-expand for non-slideshow photos (personas, gallery, tiles)
+    document.querySelectorAll('.persona-card img, .gallery-grid img, .tile-grid img').forEach((img)=>{
+      img.style.cursor='zoom-in';
+      img.addEventListener('click', ()=>{
+        if(!lightbox || !lightboxImg) return;
+        lightboxImg.src = img.src;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
+        lightbox.focus();
+      });
+    });
+
     let startX = null;
     if(lightbox){
       lightbox.addEventListener('touchstart', (e)=>{ if(e.touches?.length===1) startX=e.touches[0].clientX; }, {passive:true});
