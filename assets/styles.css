@@ -84,7 +84,8 @@ footer{padding:24px;text-align:center;color:var(--muted)}
 
 .persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
 .persona-card{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
-.persona-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
+.persona-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center}
+.organizer-card img{object-position:50% 20%}
 .persona-card h4{margin:10px 12px 6px;font-size:15px;color:var(--green-dark)}
 .persona-card p{margin:0 12px 12px;font-size:13px;line-height:1.45;color:var(--muted)}
 
@@ -102,4 +103,5 @@ footer{padding:24px;text-align:center;color:var(--muted)}
   .hero-strip{grid-template-columns:repeat(3,1fr)}
   .hero-strip img{height:72px}
   .tile-grid{grid-template-columns:repeat(3,1fr)}
+  .organizer-card img{object-position:50% 12%}
 }
