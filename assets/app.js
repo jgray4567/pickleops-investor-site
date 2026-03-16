@@ -13,11 +13,20 @@ new Chart(document.getElementById('signalsChart'),{
 new Chart(document.getElementById('mrrChart'),{
   type:'line',
   data:{labels:['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'],datasets:[
-    {label:'Conservative MRR',data:[0,500,1200,2500,4000,5500,7000,8200,9000,9800,10400,11000],borderColor:'#7aa6ff',tension:.25},
-    {label:'Base MRR',data:[0,800,2500,5000,8500,12500,17000,22000,26000,29000,32000,34000],borderColor:'#5ee0a0',tension:.25},
-    {label:'Aggressive MRR',data:[0,1200,4000,9000,16000,26000,38000,50000,60000,68000,74000,80000],borderColor:'#ffd166',tension:.25}
+    {label:'Conservative MRR',data:[0,500,1200,2500,4000,5500,7000,8200,9000,9800,10400,11000],borderColor:'#7aa6ff',backgroundColor:'#7aa6ff',tension:.25,pointRadius:2,pointHoverRadius:3},
+    {label:'Base MRR',data:[0,800,2500,5000,8500,12500,17000,22000,26000,29000,32000,34000],borderColor:'#5ee0a0',backgroundColor:'#5ee0a0',tension:.25,pointRadius:2,pointHoverRadius:3},
+    {label:'Aggressive MRR',data:[0,1200,4000,9000,16000,26000,38000,50000,60000,68000,74000,80000],borderColor:'#ffd166',backgroundColor:'#ffd166',tension:.25,pointRadius:2,pointHoverRadius:3}
   ]},
-  options:{plugins:{legend:{labels:{color:'#111827'}}},scales:{x:{ticks:{color:'#1f2937'}},y:{ticks:{color:'#1f2937'}}}}
+  options:{
+    plugins:{
+      legend:{labels:{color:'#0f172a',font:{size:13,weight:'600'}}},
+      tooltip:{titleColor:'#0f172a',bodyColor:'#0f172a'}
+    },
+    scales:{
+      x:{ticks:{color:'#0f172a',font:{size:12,weight:'600'}},grid:{color:'#d1d5db'}},
+      y:{ticks:{color:'#0f172a',font:{size:12,weight:'600'}},grid:{color:'#d1d5db'}}
+    }
+  }
 });
 
 new Chart(document.getElementById('useOfFunds'),{
