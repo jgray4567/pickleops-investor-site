@@ -21,16 +21,28 @@
   <header class="hero">
     <img class="brand-logo" src="assets/pickleops-logo.jpg" alt="PickleOps" />
     <p class="sub">The operations copilot for pickleball leagues, clubs, and facilities.</p>
+    <section class="hero-slideshow" aria-label="PickleOps slideshow">
+      <button class="slide-nav prev" id="slidePrev" aria-label="Previous slide">❮</button>
+      <div class="slides" id="slidesWrap">
+        <img class="slide active" src="assets/slides/1IxDpQ2kFHUVZ5ZXbDw1g0TdA1eubyBSc.jpg" alt="Pickleball slide 1" />
+        <img class="slide" src="assets/slides/1QX947fJgAV_uvDzyAcUEOLIdYXIww67W.jpg" alt="Pickleball slide 2" />
+        <img class="slide" src="assets/slides/1FyxJuk6IgKQZZJeM5L5bJTVm5WmpCslK.jpg" alt="Pickleball slide 3" />
+        <img class="slide" src="assets/slides/1qi7f07k0wPM4GE7OwF9j5MWs2sQaAU53.jpg" alt="Pickleball slide 4" />
+        <img class="slide" src="assets/slides/1H9E4cjPnkPt45fC7kkxHEXEyYwOVZ6FG.jpg" alt="Pickleball slide 5" />
+        <img class="slide" src="assets/slides/1m4QquR0BbmCxMfo0CjtjUtHOwADKsNqE.jpg" alt="Pickleball slide 6" />
+        <img class="slide" src="assets/slides/1CcYlKcPTPZyrwGCbrzXtC5VNFt1uHyNd.jpg" alt="Pickleball slide 7" />
+        <img class="slide" src="assets/slides/1wJ7U3oRy_HAAGXV-OgvLs7_vgGxARDFp.jpg" alt="Pickleball slide 8" />
+        <img class="slide" src="assets/slides/1lNSX95WwrYvmhqWDdkEAsVF1D_o7DwyR.jpg" alt="Pickleball slide 9" />
+        <img class="slide" src="assets/slides/1LXJ1e0lbSMoi0GlWKFFUJrfzYyCkdRsv.jpg" alt="Pickleball slide 10" />
+        <img class="slide" src="assets/slides/1Z8-kITgklfCYfhuMlfc4X6TqJIwolePT.jpg" alt="Pickleball slide 11" />
+        <img class="slide" src="assets/slides/1xcKsLqD1DOvhmlATATB60gN8BUWWhguW.jpg" alt="Pickleball slide 12" />
+      </div>
+      <button class="slide-nav next" id="slideNext" aria-label="Next slide">❯</button>
+      <div class="slide-dots" id="slideDots" aria-label="Slide selectors"></div>
+    </section>
     <div class="cta-row">
       <a class="btn" href="#market">Market</a>
       <a class="btn ghost" href="#financial">Financial Scenarios</a>
-    </div>
-    <div class="hero-strip">
-      <img src="assets/singles/set3-1-1.jpg" alt="Pickleball action" />
-      <img src="assets/singles/set3-1-2.jpg" alt="Pickleball action" />
-      <img src="assets/singles/set3-1-3.jpg" alt="Pickleball action" />
-      <img src="assets/singles/set2-3-1.jpg" alt="Pickleball action" />
-      <img src="assets/singles/set2-3-3.jpg" alt="Pickleball action" />
     </div>
   </header>
 
@@ -76,6 +88,16 @@
     </section>
 
     <section class="card">
+      <div class="hero-strip">
+        <img src="assets/singles/set3-1-1.jpg" alt="Pickleball action" />
+        <img src="assets/singles/set3-1-2.jpg" alt="Pickleball action" />
+        <img src="assets/singles/set3-1-3.jpg" alt="Pickleball action" />
+        <img src="assets/singles/set2-3-1.jpg" alt="Pickleball action" />
+        <img src="assets/singles/set2-3-3.jpg" alt="Pickleball action" />
+      </div>
+    </section>
+
+    <section class="card">
       <h2>Market Signals</h2>
       <canvas id="signalsChart" height="120"></canvas>
       <small>Qualitative demand index from research categories (not TAM).</small>
@@ -113,6 +135,17 @@
     </section>
 
     <section class="card">
+      <h2>Community & Play Lifestyle</h2>
+      <div class="gallery-grid">
+        <img src="assets/gallery-1.jpg" alt="Active pickleball lifestyle collage showing community and gameplay" />
+        <img src="assets/gallery-2.jpg" alt="Pickleball players in dynamic match and social moments" />
+        <img src="assets/gallery-3.jpg" alt="Diverse pickleball players in action across courts" />
+      </div>
+    </section>
+
+
+
+    <section class="card">
       <h2>Potential Pricing Structure</h2>
       <div class="three-col">
         <article class="card">
@@ -140,23 +173,7 @@
       <div class="three-col" id="scenarioCards"></div>
     </section>
 
-    <section class="card">
-      <h2>Community & Play Lifestyle</h2>
-      <div class="gallery-grid">
-        <img src="assets/gallery-1.jpg" alt="Active pickleball lifestyle collage showing community and gameplay" />
-        <img src="assets/gallery-2.jpg" alt="Pickleball players in dynamic match and social moments" />
-        <img src="assets/gallery-3.jpg" alt="Diverse pickleball players in action across courts" />
-      </div>
-      <div class="tile-grid">
-        <img src="assets/singles/set1-1-1.jpg" alt="Player action close-up" />
-        <img src="assets/singles/set1-2-2.jpg" alt="Doubles play" />
-        <img src="assets/singles/set1-3-4.jpg" alt="Player celebrating point" />
-        <img src="assets/singles/set2-1-1.jpg" alt="Athlete preparing return" />
-        <img src="assets/singles/set2-2-2.jpg" alt="Court play sequence" />
-        <img src="assets/singles/set3-2-3.jpg" alt="Player moving to shot" />
-      </div>
-      <small>Visual direction: inclusive, active, community-first participation.</small>
-    </section>
+
 
     <section class="card">
       <h2>Go-to-Market Plan (90 days)</h2>
@@ -174,6 +191,17 @@
     </section>
 
     <section class="card">
+      <div class="tile-grid">
+        <img src="assets/singles/set1-1-1.jpg" alt="Player action close-up" />
+        <img src="assets/singles/set1-2-2.jpg" alt="Doubles play" />
+        <img src="assets/singles/set1-3-4.jpg" alt="Player celebrating point" />
+        <img src="assets/singles/set2-1-1.jpg" alt="Athlete preparing return" />
+        <img src="assets/singles/set2-2-2.jpg" alt="Court play sequence" />
+        <img src="assets/singles/set3-2-3.jpg" alt="Player moving to shot" />
+      </div>
+    </section>
+
+    <section class="card">
       <h2>Investor Download Pack</h2>
       <ul>
         <li><a href="downloads/pdf/investor-involvement-plan.pdf" download>Investor Involvement Plan (PDF)</a></li>
@@ -181,6 +209,17 @@
         <li><a href="downloads/pdf/investor-dd-checklist.pdf" download>Investor Due Diligence Checklist (PDF)</a></li>
       </ul>
       <small>These are downloadable action plans for investors/operators who want to participate in execution.</small>
+    </section>
+
+    <section class="card">
+      <div class="tile-grid alt-row">
+        <img src="assets/singles/set1-1-2.jpg" alt="Pickleball player portrait" />
+        <img src="assets/singles/set1-2-1.jpg" alt="Players social interaction" />
+        <img src="assets/singles/set1-2-4.jpg" alt="Doubles rally" />
+        <img src="assets/singles/set2-1-2.jpg" alt="High-five after point" />
+        <img src="assets/singles/set2-3-2.jpg" alt="Competitive rally" />
+        <img src="assets/singles/set3-2-2.jpg" alt="Player in motion" />
+      </div>
     </section>
 
     <section class="card sources">
@@ -202,6 +241,34 @@
     if (sessionStorage.getItem('po_gate_ok') !== '1') {
       window.location.replace('index.html');
     }
+  </script>
+  <script>
+  (function(){
+    const slides=[...document.querySelectorAll('.slide')];
+    const dotsWrap=document.getElementById('slideDots');
+    const prev=document.getElementById('slidePrev');
+    const next=document.getElementById('slideNext');
+    if(!slides.length||!dotsWrap||!prev||!next) return;
+    let i=0;
+    const dots=slides.map((_,idx)=>{
+      const b=document.createElement('button');
+      b.className='dot'+(idx===0?' active':'');
+      b.setAttribute('aria-label','Go to slide '+(idx+1));
+      b.addEventListener('click',()=>show(idx,true));
+      dotsWrap.appendChild(b);
+      return b;
+    });
+    function show(n,manual=false){
+      i=(n+slides.length)%slides.length;
+      slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
+      dots.forEach((d,idx)=>d.classList.toggle('active',idx===i));
+      if(manual) resetAuto();
+    }
+    prev.addEventListener('click',()=>show(i-1,true));
+    next.addEventListener('click',()=>show(i+1,true));
+    let t=setInterval(()=>show(i+1),4500);
+    function resetAuto(){clearInterval(t);t=setInterval(()=>show(i+1),4500)}
+  })();
   </script>
   <script src="assets/app.js"></script>
 </body>
