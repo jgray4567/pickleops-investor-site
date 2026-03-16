@@ -40,11 +40,16 @@
       <button class="slide-nav next" id="slideNext" aria-label="Next slide">❯</button>
       <div class="slide-dots" id="slideDots" aria-label="Slide selectors"></div>
     </section>
-    <div class="lightbox" id="lightbox" aria-hidden="true" tabindex="-1">
-      <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
-      <button class="lightbox-nav lb-prev" id="lightboxPrev" aria-label="Previous slide">❮</button>
-      <img id="lightboxImg" src="" alt="Expanded slide" />
-      <button class="lightbox-nav lb-next" id="lightboxNext" aria-label="Next slide">❯</button>
+    <div class="lightbox" id="slideLightbox" aria-hidden="true" tabindex="-1">
+      <button class="lightbox-close" id="slideLightboxClose" aria-label="Close">×</button>
+      <button class="lightbox-nav lb-prev" id="slideLightboxPrev" aria-label="Previous slide">❮</button>
+      <img id="slideLightboxImg" src="" alt="Expanded slide" />
+      <button class="lightbox-nav lb-next" id="slideLightboxNext" aria-label="Next slide">❯</button>
+    </div>
+
+    <div class="lightbox" id="photoLightbox" aria-hidden="true" tabindex="-1">
+      <button class="lightbox-close" id="photoLightboxClose" aria-label="Close">×</button>
+      <img id="photoLightboxImg" src="" alt="Expanded photo" />
     </div>
     <div class="cta-row">
       <a class="btn" href="#market">Market</a>
@@ -268,11 +273,17 @@
     const prev=document.getElementById('slidePrev');
     const next=document.getElementById('slideNext');
     const slidesWrap=document.getElementById('slidesWrap');
-    const lightbox=document.getElementById('lightbox');
-    const lightboxImg=document.getElementById('lightboxImg');
-    const lightboxClose=document.getElementById('lightboxClose');
-    const lightboxPrev=document.getElementById('lightboxPrev');
-    const lightboxNext=document.getElementById('lightboxNext');
+
+    const slideLightbox=document.getElementById('slideLightbox');
+    const slideLightboxImg=document.getElementById('slideLightboxImg');
+    const slideLightboxClose=document.getElementById('slideLightboxClose');
+    const slideLightboxPrev=document.getElementById('slideLightboxPrev');
+    const slideLightboxNext=document.getElementById('slideLightboxNext');
+
+    const photoLightbox=document.getElementById('photoLightbox');
+    const photoLightboxImg=document.getElementById('photoLightboxImg');
+    const photoLightboxClose=document.getElementById('photoLightboxClose');
+
     if(!slides.length||!dotsWrap||!prev||!next) return;
     let i=0;
     const dots=slides.map((_,idx)=>{
@@ -283,6 +294,7 @@
       dotsWrap.appendChild(b);
       return b;
     });
+
     function show(n,manual=false){
       i=(n+slides.length)%slides.length;
       slides.forEach((s,idx)=>s.classList.toggle('active',idx===i));
@@ -292,47 +304,58 @@
     prev.addEventListener('click',()=>show(i-1,true));
     next.addEventListener('click',()=>show(i+1,true));
 
-    function syncLightboxImage(){
-      if(!lightboxImg) return;
-      lightboxImg.src = slides[i].src;
+    function syncSlideLightboxImage(){
+      if(!slideLightboxImg) return;
+      slideLightboxImg.src = slides[i].src;
     }
-    function openLightbox(){
-      if(!lightbox||!lightboxImg) return;
-      syncLightboxImage();
-      lightbox.classList.add('open');
-      lightbox.setAttribute('aria-hidden','false');
-      lightbox.focus();
+    function openSlideLightbox(){
+      if(!slideLightbox||!slideLightboxImg) return;
+      syncSlideLightboxImage();
+      slideLightbox.classList.add('open');
+      slideLightbox.setAttribute('aria-hidden','false');
+      slideLightbox.focus();
     }
-    function closeLightbox(){
-      if(!lightbox) return;
-      lightbox.classList.remove('open');
-      lightbox.setAttribute('aria-hidden','true');
+    function closeSlideLightbox(){
+      if(!slideLightbox) return;
+      slideLightbox.classList.remove('open');
+      slideLightbox.setAttribute('aria-hidden','true');
     }
-    function nextSlide(manual=true){ show(i+1,manual); if(lightbox?.classList.contains('open')) syncLightboxImage(); }
-    function prevSlide(manual=true){ show(i-1,manual); if(lightbox?.classList.contains('open')) syncLightboxImage(); }
 
-    if(slidesWrap) slidesWrap.addEventListener('click', openLightbox);
-    if(lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    if(lightboxPrev) lightboxPrev.addEventListener('click', (e)=>{ e.stopPropagation(); prevSlide(false); });
-    if(lightboxNext) lightboxNext.addEventListener('click', (e)=>{ e.stopPropagation(); nextSlide(false); });
-    if(lightbox) lightbox.addEventListener('click', (e)=>{ if(e.target===lightbox) closeLightbox(); });
+    function openPhotoLightbox(src){
+      if(!photoLightbox||!photoLightboxImg) return;
+      photoLightboxImg.src = src;
+      photoLightbox.classList.add('open');
+      photoLightbox.setAttribute('aria-hidden','false');
+      photoLightbox.focus();
+    }
+    function closePhotoLightbox(){
+      if(!photoLightbox) return;
+      photoLightbox.classList.remove('open');
+      photoLightbox.setAttribute('aria-hidden','true');
+    }
 
-    // Click-to-expand for non-slideshow photos (personas, gallery, tiles)
+    function nextSlide(manual=true){ show(i+1,manual); if(slideLightbox?.classList.contains('open')) syncSlideLightboxImage(); }
+    function prevSlide(manual=true){ show(i-1,manual); if(slideLightbox?.classList.contains('open')) syncSlideLightboxImage(); }
+
+    if(slidesWrap) slidesWrap.addEventListener('click', openSlideLightbox);
+    if(slideLightboxClose) slideLightboxClose.addEventListener('click', closeSlideLightbox);
+    if(slideLightboxPrev) slideLightboxPrev.addEventListener('click', (e)=>{ e.stopPropagation(); prevSlide(false); });
+    if(slideLightboxNext) slideLightboxNext.addEventListener('click', (e)=>{ e.stopPropagation(); nextSlide(false); });
+    if(slideLightbox) slideLightbox.addEventListener('click', (e)=>{ if(e.target===slideLightbox) closeSlideLightbox(); });
+
+    // Click-to-expand for non-slideshow photos (single photo lightbox only)
     document.querySelectorAll('.persona-card img, .gallery-grid img, .tile-grid img').forEach((img)=>{
       img.style.cursor='zoom-in';
-      img.addEventListener('click', ()=>{
-        if(!lightbox || !lightboxImg) return;
-        lightboxImg.src = img.src;
-        lightbox.classList.add('open');
-        lightbox.setAttribute('aria-hidden','false');
-        lightbox.focus();
-      });
+      img.addEventListener('click', ()=> openPhotoLightbox(img.src));
     });
 
+    if(photoLightboxClose) photoLightboxClose.addEventListener('click', closePhotoLightbox);
+    if(photoLightbox) photoLightbox.addEventListener('click', (e)=>{ if(e.target===photoLightbox) closePhotoLightbox(); });
+
     let startX = null;
-    if(lightbox){
-      lightbox.addEventListener('touchstart', (e)=>{ if(e.touches?.length===1) startX=e.touches[0].clientX; }, {passive:true});
-      lightbox.addEventListener('touchend', (e)=>{
+    if(slideLightbox){
+      slideLightbox.addEventListener('touchstart', (e)=>{ if(e.touches?.length===1) startX=e.touches[0].clientX; }, {passive:true});
+      slideLightbox.addEventListener('touchend', (e)=>{
         if(startX===null) return;
         const endX = e.changedTouches?.[0]?.clientX;
         if(typeof endX!=='number') return;
@@ -345,8 +368,11 @@
     }
 
     document.addEventListener('keydown', (e)=>{
-      if(e.key==='Escape') closeLightbox();
-      if(lightbox?.classList.contains('open')){
+      if(e.key==='Escape'){
+        closeSlideLightbox();
+        closePhotoLightbox();
+      }
+      if(slideLightbox?.classList.contains('open')){
         if(e.key==='ArrowRight') nextSlide(false);
         if(e.key==='ArrowLeft') prevSlide(false);
       }
