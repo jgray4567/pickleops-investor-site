@@ -10,6 +10,21 @@ new Chart(document.getElementById('signalsChart'),{
   options:{plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#1f2937'}},y:{beginAtZero:true,max:100,ticks:{color:'#1f2937'}}}}
 });
 
+new Chart(document.getElementById('pricingBandsChart'),{
+  type:'bar',
+  data:{
+    labels:['Player Tools','Organizer/Community','Facility SaaS'],
+    datasets:[
+      {label:'Low ($/mo equiv)',data:[0,0,200],backgroundColor:'#c7d2fe'},
+      {label:'High ($/mo equiv)',data:[3,25,550],backgroundColor:'#4b2e83'}
+    ]
+  },
+  options:{
+    plugins:{legend:{labels:{color:'#0f172a',font:{size:12,weight:'600'}}}},
+    scales:{x:{ticks:{color:'#0f172a',font:{size:12,weight:'600'}}},y:{ticks:{color:'#0f172a',font:{size:12,weight:'600'}},grid:{color:'#d1d5db'}}}
+  }
+});
+
 new Chart(document.getElementById('mrrChart'),{
   type:'line',
   data:{labels:['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'],datasets:[
