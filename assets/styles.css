@@ -82,6 +82,11 @@ ul,ol{line-height:1.65}
 a{color:var(--purple)}
 canvas{display:block;width:100% !important;max-width:100%}
 
+.social-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-top:12px}
+.social-chip{display:flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:#fff}
+.social-chip img{width:20px;height:20px;object-fit:contain}
+.social-chip span{font-weight:600;color:#1f2937;font-size:14px}
+
 .sources{border-top-color:var(--gold)}
 footer{padding:24px;text-align:center;color:var(--muted)}
 
