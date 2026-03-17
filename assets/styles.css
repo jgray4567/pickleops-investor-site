@@ -143,8 +143,13 @@ footer{padding:24px;text-align:center;color:var(--muted)}
   .slide-nav{width:30px;height:30px;font-size:18px}
   .slide-dots{gap:6px}
   .slide-dots .dot{width:8px;height:8px}
-  .persona-grid{grid-template-columns:1fr}
-  .tile-grid{grid-template-columns:repeat(2,1fr)}
+  .kpis,.three-col,.persona-grid,.social-panel{grid-template-columns:1fr !important}
+  .hero-strip{grid-template-columns:repeat(2,1fr)}
+  .hero-strip img{height:84px}
+  .tile-grid{grid-template-columns:1fr 1fr}
   .tile-grid img{height:92px}
+  .card{padding:14px}
+  .matrix{min-width:0}
+  .matrix th,.matrix td{font-size:13px;padding:8px}
   .lightbox img{max-width:95vw;max-height:82vh}
 }
